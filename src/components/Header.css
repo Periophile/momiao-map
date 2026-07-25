@@ -1,0 +1,148 @@
+/* ============================================
+   神奇的妙妙地图 — Header
+   ============================================ */
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 28px;
+  background: var(--card-bg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--card-border);
+  z-index: 100;
+  flex-shrink: 0;
+}
+
+.header-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.header-logo {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  animation: float 3s ease-in-out infinite;
+  object-fit: cover;
+}
+
+.header-title {
+  font-family: var(--font-title);
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--text-primary);
+  letter-spacing: -0.3px;
+}
+
+.header-subtitle {
+  font-size: 12px;
+  color: var(--text-muted);
+  font-weight: 400;
+  margin-top: -1px;
+}
+
+.header-stats {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  flex-shrink: 0;
+}
+
+.stat-badge {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  border-radius: 50px;
+  font-size: 13px;
+  font-weight: 600;
+  font-family: var(--font-title);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  user-select: none;
+}
+
+.stat-badge:hover {
+  transform: scale(1.05);
+}
+
+.stat-badge:active {
+  transform: scale(0.95);
+}
+
+.stat-badge.active {
+  box-shadow: 0 0 0 3px var(--accent-glow);
+}
+
+.stat-badge.food {
+  background: var(--food-bg);
+  color: #CC8A1A;
+}
+
+.stat-badge.cigarette {
+  background: var(--cigarette-bg);
+  color: #4A8C63;
+}
+
+.stat-badge.vape {
+  background: rgba(155, 126, 216, 0.12);
+  color: #6B4FB0;
+}
+
+.stat-badge.bar {
+  background: rgba(232, 168, 64, 0.12);
+  color: #B8861E;
+}
+
+.stat-badge.drink {
+  background: rgba(94, 196, 196, 0.12);
+  color: #3A8A8A;
+}
+
+.stat-badge.all {
+  background: rgba(255, 140, 148, 0.1);
+  color: var(--accent-dark);
+}
+
+.stat-badge .emoji {
+  font-size: 16px;
+}
+
+.stat-icon-img {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.stat-badge .num {
+  font-size: 16px;
+  font-weight: 800;
+}
+
+/* === Responsive === */
+@media (max-width: 768px) {
+  .header {
+    padding: 12px 16px;
+  }
+
+  .header-logo {
+    font-size: 26px;
+  }
+
+  .header-title {
+    font-size: 18px;
+  }
+
+  .header-subtitle {
+    display: none;
+  }
+
+  .stat-badge {
+    padding: 6px 10px;
+    font-size: 12px;
+  }
+}

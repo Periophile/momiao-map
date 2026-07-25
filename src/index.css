@@ -1,0 +1,200 @@
+/* ============================================
+   神奇的妙妙地图 — Global Reset & Variables
+   ============================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap');
+
+:root {
+  /* === 蜜桃奶茶色系 === */
+  --bg-primary: #FFF5F0;
+  --bg-secondary: #FFEDE4;
+  --accent: #FF8C94;
+  --accent-light: #FFB3B8;
+  --accent-dark: #E8757D;
+  --accent-glow: rgba(255, 140, 148, 0.25);
+  --card-bg: rgba(255, 255, 255, 0.82);
+  --card-border: rgba(255, 255, 255, 0.6);
+  --text-primary: #4A3728;
+  --text-secondary: #8B7355;
+  --text-muted: #BFAA95;
+  --food-color: #FFB347;
+  --food-bg: rgba(255, 179, 71, 0.12);
+  --cigarette-color: #7EC8A0;
+  --cigarette-bg: rgba(126, 200, 160, 0.12);
+  --shadow-sm: 0 2px 8px rgba(255, 140, 148, 0.12);
+  --shadow-md: 0 4px 20px rgba(255, 140, 148, 0.15);
+  --shadow-lg: 0 8px 40px rgba(255, 140, 148, 0.18);
+  --radius-sm: 10px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-xl: 32px;
+  --font-title: 'Nunito', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  --font-body: 'PingFang SC', 'Microsoft YaHei', 'Hiragino Sans GB', sans-serif;
+}
+
+/* Leaflet CSS is imported in main.jsx */
+
+/* === Reset === */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-body);
+  background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 50%, #FFE8E0 100%);
+  color: var(--text-primary);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+/* === Scrollbar === */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--accent-light);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent);
+}
+
+/* === Leaflet overrides === */
+.leaflet-container {
+  border-radius: var(--radius-lg);
+  font-family: var(--font-body);
+  z-index: 1;
+}
+
+.leaflet-popup-content-wrapper {
+  border-radius: var(--radius-md) !important;
+  box-shadow: var(--shadow-lg) !important;
+  padding: 0 !important;
+  overflow: hidden;
+  background: var(--card-bg) !important;
+  backdrop-filter: blur(16px) !important;
+  -webkit-backdrop-filter: blur(16px) !important;
+}
+
+.leaflet-popup-content {
+  margin: 0 !important;
+  min-width: 200px;
+}
+
+.leaflet-popup-close-button {
+  z-index: 10 !important;
+  color: var(--text-muted) !important;
+  font-size: 20px !important;
+  padding: 8px 10px !important;
+}
+
+.leaflet-popup-close-button:hover {
+  color: var(--accent) !important;
+}
+
+.leaflet-popup-tip {
+  box-shadow: var(--shadow-md) !important;
+}
+
+/* Fix Leaflet default icon path issue */
+.leaflet-default-icon-path {
+  background-image: url(https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon.png);
+}
+
+/* === Animations === */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes bounceIn {
+  0% { transform: scale(0); opacity: 0; }
+  40% { transform: scale(1.15); }
+  70% { transform: scale(0.95); }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 var(--accent-glow); }
+  70% { box-shadow: 0 0 0 14px rgba(255, 140, 148, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(255, 140, 148, 0); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes popIn {
+  0% { transform: scale(0.8); opacity: 0; }
+  60% { transform: scale(1.05); }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes slideInLeft {
+  from { transform: translateX(-100%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes slideInUp {
+  from { transform: translateY(100%); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+/* === Utility classes === */
+.glass-card {
+  background: var(--card-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+}
+
+.animate-fadeInUp {
+  animation: fadeInUp 0.5s ease-out both;
+}
+
+.animate-bounceIn {
+  animation: bounceIn 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55) both;
+}
+
+.animate-popIn {
+  animation: popIn 0.35s cubic-bezier(0.68, -0.55, 0.27, 1.55) both;
+}
